@@ -4,7 +4,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 from loguru import logger
 from typing import List
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from reddit.textprocess import(
+from redditsearch.reddit.textprocess import(
     indent_text,
     indentation,
     post_tmpl,
