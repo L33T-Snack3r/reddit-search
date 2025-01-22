@@ -1,7 +1,10 @@
 indentation = '   '
 
 post_tmpl = \
-"""<POST_SUBREDDIT>
+"""
+<POST_ID>
+{post_id}
+<POST_SUBREDDIT>
 {post_subreddit}
 <POST_TITLE>
 {post_title}

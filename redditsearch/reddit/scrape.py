@@ -77,7 +77,8 @@ class Scraper():
             "created_utc":submission.created_utc
         }
 
-        post_str = post_tmpl.format(post_subreddit=str(submission.subreddit),
+        post_str = post_tmpl.format(post_id=str(submission.id),
+                                    post_subreddit=str(submission.subreddit),
                                     post_author=str(submission.author),
                                     post_title=str(submission.title),
                                     post_content=str(submission.selftext),
@@ -185,7 +186,8 @@ class Scraper():
                 "created_utc":post.created_utc
             }
 
-            post_str = post_tmpl.format(post_subreddit=str(post.subreddit),
+            post_str = post_tmpl.format(post_id=str(post.id),
+                                        post_subreddit=str(post.subreddit),
                                         post_author=str(post.author),
                                         post_title=str(post.title),
                                         post_content=str(post.selftext),
