@@ -4,7 +4,7 @@ from loguru import logger
 import json
 from typing import List
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from redditsearch.utils import find_text_in_between_tags
+from redditsearch.misc.utils import find_text_in_between_tags
 from redditsearch.llm.prompts import (
     system_prompt,
     post_summarize_prompt_tmpl,

@@ -59,7 +59,9 @@ class Scraper():
                        ) -> List[str]:
         search = self.reddit.subreddit('all').search(query, sort='relevance', time_filter='all', limit=max_posts)
         logger.info("Post IDs retrieved.")
-        return [str(post.id) for post in search]
+
+        #exclude posts with 0 discussion as these could be bot posts or irrelevant
+        return [str(post.id) for post in search if post.num_comments > 0]
 
     def _scrape_reddit_post(self, post_id: str):
         submission = self.reddit.submission(id=post_id)

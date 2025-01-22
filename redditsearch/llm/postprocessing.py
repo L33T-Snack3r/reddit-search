@@ -5,7 +5,8 @@ def onehotencode(df: pd.DataFrame,
                  content_key: str = 'content'
                  ) -> pd.DataFrame:
     
-    df[content_key] = df[content_key].fillna('')
+    #Drop all posts that don't have any comments
+    df = df.dropna(subset = [content_key])
 
     for keyword in keywords:
         df[keyword] = df[content_key].str.contains(rf'\b{keyword}\b', case=False).astype(int)

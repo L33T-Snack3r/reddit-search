@@ -4,7 +4,7 @@ from redditsearch.llm.postprocessing import (
     onehotencode,
     get_keyword_counts
 )
-from redditsearch.data_models import (
+from redditsearch.misc.data_models import (
     Query,
     Response
 )
