@@ -24,7 +24,7 @@ class Settings(BaseSettings):
     timeout_seconds: int = 120
 
 cfg = Settings()
-
+logger.info(f"openai: {cfg}")
 class Summarizer():
     def __init__(self,
                  openai_api_key: str = cfg.api_key,
