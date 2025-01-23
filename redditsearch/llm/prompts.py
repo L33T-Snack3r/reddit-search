@@ -38,7 +38,7 @@ summary_summarize_prompt_tmpl = \
 You have been provided with a list of reddit post summaries under <<<<REDDIT POST SUMMARIES>>>>
 These reddit posts were retrieved when a user made the following google query: {query}
 In the query, the user is seeking solutions to a problem they have or wants to get advice to make the best decision.
-Please create a concise overarching summary of all the post summaries in short PARAGRAPH format (not bullet points)
+Please create a very concise overarching summary of all the post summaries IN A FEW TINY PARAGRAPHS of similar length to the example below (not bullet points)
 OUTPUT THE SUMMARY BETWEEN the tags <SUMMARY> and </SUMMARY>.
 
 Follow the following chain of thought when thinking about the summary:
