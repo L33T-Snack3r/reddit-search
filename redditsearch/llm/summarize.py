@@ -14,6 +14,10 @@ from redditsearch.llm.output_examples import (
     summary_examples,
     summary_summary_examples
 )
+import certifi
+import os
+#This line is necessary to get the correct SSL cert to call the openai api
+os.environ["SSL_CERT_FILE"] = certifi.where()
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_prefix="azure_openai_")
@@ -24,7 +28,7 @@ class Settings(BaseSettings):
     timeout_seconds: int = 120
 
 cfg = Settings()
-logger.info(f"openai: {cfg}")
+
 class Summarizer():
     def __init__(self,
                  openai_api_key: str = cfg.api_key,
@@ -46,6 +50,18 @@ class Summarizer():
         self.retries = retries
         self.timeout_seconds = timeout_seconds
     
+        #### test
+        self.testquery = "What is an apple?"
+        self.testresponse = self.openai_client.chat.completions.create(
+                                model=self.openai_model,
+                                messages=[
+                                    {"role": "user", "content": self.testquery}
+                                ],
+                                timeout=self.timeout_seconds,
+                                temperature=self.temperature
+                )
+        logger.info(f"LLM call test - Query: {self.testquery} Response: {self.testresponse.choices[0].message.content}")
+
     def _summarize_post(self, 
                         query: str,
                         post_str: str):

@@ -24,8 +24,8 @@ def get_keyword_counts(df : pd.DataFrame,
 
     # Extract the sorted keywords and their corresponding mentions
     result = {
-        "keywords": sorted_keywords.index.tolist(),
-        "mentions": sorted_keywords.values.tolist()
+        "keywords": sorted_keywords.index.tolist()[:10],
+        "mentions": sorted_keywords.values.tolist()[:10]
     }
 
     return result
