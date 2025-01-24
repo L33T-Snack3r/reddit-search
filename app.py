@@ -16,7 +16,7 @@ if "search_results" not in st.session_state:
 
 # Perform the search only if the query changes
 if st.button("Search") and query:
-    with st.spinner("Please wait while we fetch the data..."):
+    with st.spinner("Please wait while we fetch your results..."):
         payload = Query(query=query, maxposts=5)
         response = search(payload)
         st.session_state.search_results = {
